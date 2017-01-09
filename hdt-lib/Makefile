@@ -8,10 +8,8 @@ RAPTOR_SUPPORT=true
 LIBZ_SUPPORT=true
 SERD_SUPPORT=true
 
-CPP=g++
-
+CPP?=g++
 FLAGS=-O3 -Wno-deprecated -Wall -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-unused-but-set-variable -Wno-narrowing -Wno-unknown-warning-option
-
 INCLUDES=-I $(LIBCDSPATH)/includes/ -I /usr/local/include -I ./include -I /opt/local/include -I /usr/include
 LDFLAGS=
 DOXYGEN=doxygen
@@ -39,7 +37,7 @@ LIB:=$(LIB) -lserd-0
 endif
 
 ifeq ($(OS), Darwin)
-CPP=clang++
+CPP?=clang++
 FLAGS:=$(FLAGS) -arch x86_64
 endif
 
